@@ -1,0 +1,5 @@
+---
+title: "STAT 120 Website"
+---
+
+This website is part of the coursework for STAT 120 at the Univertsity of Pennsylvania and includes the research assignment chosen for the class.
