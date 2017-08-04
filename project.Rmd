@@ -27,7 +27,7 @@ table(gss$partyid)
 The second independent variable is 2016 Income. 
 
 ```{r}
-
+table(gss$RINCOM16)
 ```
 
 
@@ -47,6 +47,12 @@ plot(partyid ~ lessreg, data = gss)
 
 ```
 
+```{r}
+chisq.test(table(gss$RINCOM16, gss$lessreg))
+reg2 <- lm(RINCOM16 ~ lessreg, data = gss)
+summary(reg2)
+plot(RINCOM16 ~ lessreg, data = gss)
+```
 
 
     

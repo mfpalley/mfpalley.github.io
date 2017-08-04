@@ -215,6 +215,12 @@ $(document).ready(function () {
 ##   0   1   2   3   4   5   6   7 
 ## 205 238 188 226 142 183 134  27</code></pre>
 <p>The second independent variable is 2016 Income.</p>
+<pre class="r"><code>table(gss$RINCOM16)</code></pre>
+<pre><code>## 
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
+##  8 26 23 18 18 13 11 14 26 15 26 22 36 31 49 64 41 65 70 60 36 34 19 12  8 
+## 26 
+## 24</code></pre>
 <p>Here is how the data turned out:</p>
 <pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
@@ -264,6 +270,71 @@ summary(reg1)</code></pre>
 ## F-statistic:   140 on 1 and 1341 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre class="r"><code>plot(partyid ~ lessreg, data = gss)</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>chisq.test(table(gss$RINCOM16, gss$lessreg))</code></pre>
+<pre><code>## Warning in chisq.test(table(gss$RINCOM16, gss$lessreg)): Chi-squared
+## approximation may be incorrect</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  table(gss$RINCOM16, gss$lessreg)
+## X-squared = 95.988, df = 100, p-value = 0.5949</code></pre>
+<pre class="r"><code>reg2 &lt;- lm(RINCOM16 ~ lessreg, data = gss)
+summary(reg2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = RINCOM16 ~ lessreg, data = gss)
+## 
+## Residuals:
+## &lt;Labelled double&gt;
+##      Min       1Q   Median       3Q      Max 
+## -14.6473  -3.9262   1.0738   4.4343  11.7949 
+## 
+## Labels:
+##  value              label
+##      0                IAP
+##      1       UNDER $1 000
+##      2    $1 000 TO 2 999
+##      3    $3 000 TO 3 999
+##      4    $4 000 TO 4 999
+##      5    $5 000 TO 5 999
+##      6    $6 000 TO 6 999
+##      7    $7 000 TO 7 999
+##      8    $8 000 TO 9 999
+##      9    $10000 TO 12499
+##     10    $12500 TO 14999
+##     11    $15000 TO 17499
+##     12    $17500 TO 19999
+##     13    $20000 TO 22499
+##     14    $22500 TO 24999
+##     15    $25000 TO 29999
+##     16    $30000 TO 34999
+##     17    $35000 TO 39999
+##     18    $40000 TO 49999
+##     19    $50000 TO 59999
+##     20    $60000 TO 74999
+##     21   $75000 TO $89999
+##     22  $90000 TO $109999
+##     23 $110000 TO $129999
+##     24 $130000 TO $149999
+##     25 $150000 TO $169999
+##     26    $170000 OR OVER
+##     27            REFUSED
+##     98                 DK
+##     99                 NA
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  16.0078     0.5931  26.992   &lt;2e-16 ***
+## lessreg      -0.3605     0.2151  -1.676   0.0941 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.251 on 767 degrees of freedom
+##   (2098 observations deleted due to missingness)
+## Multiple R-squared:  0.003649,   Adjusted R-squared:  0.00235 
+## F-statistic: 2.809 on 1 and 767 DF,  p-value: 0.09414</code></pre>
+<pre class="r"><code>plot(RINCOM16 ~ lessreg, data = gss)</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>
