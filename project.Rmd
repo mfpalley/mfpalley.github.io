@@ -6,12 +6,14 @@ title: "Research Assignment"
 
 This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. My hypothesis was that Liberals would favour more regulation while Conservatives would favour less.
 
-2
+###Data
 
-
+Here is how the data turned out:
 
 
 ```{r}
-
+counts <- table(gss$partyid, gss$lessreg)
+barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
 ```
+
 
