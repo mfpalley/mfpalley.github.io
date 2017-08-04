@@ -87,4 +87,5 @@ There is a significant correlation between Party ID and Views on Regulation, how
 
 Looking first at Political identifcation, the data fits the proposed hypothesis linking Democrats with more government oversight and consumer protection, and Republicans with support for a free market and limited government. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.
 
+1
     
