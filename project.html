@@ -202,16 +202,19 @@ $(document).ready(function () {
 </div>
 
 
+<p><br> <br></p>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <p>This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. The 2016 data is espescially useful as it coincided with a Presidential election year. The focus of this election shifted from a focus on the economy to a larger emphasis on social issues, particularly immigration and foreign policy, so it is worthwhile to investigate this issue which received a smaller amount of attention.</p>
 <p>My hypothesis was that Liberals would favour more regulation while Conservatives would favour less. The hypothesis for the second independent variable, 2016 income, was that lower incomes would also favour more regulation on business. However, the correlation was expected to be less than that of political party and view on regulation.</p>
 <p>============================================================</p>
+<p><br> <br> <br></p>
 </div>
 <div id="data" class="section level3">
 <h3>Data</h3>
-<p>The first independent variable is Party ID. The distrubution of Liberals and Conservatives seems almost symmetrical, with slightly more Liberals. Interestingly, for both Liberals and Conservatives, the most popular option was to identify as a moderate within their respective party.</p>
+<p><br> The first independent variable is Party Identification. The distrubution of Liberals and Conservatives seems almost symmetrical, with slightly more Liberals. Interestingly, for both Liberals and Conservatives, the most popular option was to identify as a moderate within their respective party.</p>
 <p>This data is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative. 7 corresponds to Other Party, or Refused to Say.</p>
+<p><br></p>
 <pre class="r"><code>counts &lt;- table(gss$partyid)
 barplot(counts, main=&quot;Distribution of Political Identification&quot;, xlab=&quot;Party Identification - Liberal to Conservative&quot;, col=c(&quot;blue4&quot;, &quot;royalblue1&quot;, &quot;skyblue1&quot;, &quot;seashell&quot;, &quot;indianred1&quot;, &quot;indianred3&quot;, &quot;red&quot;, &quot;slategray&quot;))</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
@@ -219,29 +222,33 @@ barplot(counts, main=&quot;Distribution of Political Identification&quot;, xlab=
 <pre><code>## 
 ##   0   1   2   3   4   5   6   7 
 ## 205 238 188 226 142 183 134  27</code></pre>
-<p>There</p>
-<p>The second independent variable is 2016 Income.</p>
+<p><br> <br></p>
+<p>The second independent variable is 2016 Income. The distribtion of income was quite well spread out and varied, with the majority of respondents earning less than $50,000 in the last year. The data is not a true interval-ratio variable, and it is important to note that 51 people surveyed reported incomes of over $170,000, and the data does not specify how high their actual income turned out to be. Furthermore, 85 participants declined to provide their annual incomes, which makes this variable incomplete and less useful for our analysis. <br> <br></p>
+<pre class="r"><code>counts &lt;- table(gss$RINCOM16)
+barplot(counts, main=&quot;2016 Income Distribution&quot;, xlab=&quot;2016 Income - Low to High&quot;, col=c(&quot;green4&quot;))</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><br></p>
 <pre class="r"><code>table(gss$RINCOM16)</code></pre>
 <pre><code>## 
 ##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
 ##  8 26 23 18 18 13 11 14 26 15 26 22 36 31 49 64 41 65 70 60 36 34 19 12  8 
 ## 26 
 ## 24</code></pre>
-<p>The distribtion of income was quite well spread out and varied, with the majority of respondents earning less than $50,000 in the last year. The data is not a true interval-ratio variable, and it is important to note that 51 people surveyed reported incomes of over $170,000, and the data does not specify how high their actual income turned out to be. Furthermore, 85 participants declined to provide their annual incomes, which makes this variable incomplete and less</p>
-<p>The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against.</p>
-<pre class="r"><code>table(gss$lessreg)</code></pre>
-<pre><code>## 
-##   1   2   3   4   5 
-## 236 470 399 191  60</code></pre>
+<p><br> <br></p>
+<p>The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against. <br></p>
+<pre class="r"><code>counts &lt;- table(gss$lessreg)
+barplot(counts, main=&quot;Support for Reducing Government Regulation of Business&quot;, xlab=&quot;Degree of Support - Strong to Weak&quot;, col=c(&quot;red&quot;, &quot;indianred1&quot;, &quot;seashell&quot;, &quot;skyblue1&quot;, &quot;blue4&quot;), legend = rownames(counts))</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /> <br></p>
 <p>There were a total of 1444 respondents, and the larger proportion of people supported some reduction of government regulation. Almost 50% of people surveyed believed that the regulatory regime was too much of a burden for businesses. The single largest group was in favour of regulations, closely followed by the neutral group. Interestingly, the smallest group was that strongly against a reduction in regulation. This group was a third of the size of the next closest - the group moderately against a decrease in regulation. This means that just over 17% of those surveyed would like to see increased government regulation of business. This data appeared at first glance surprising, but it is important to note that views on regulation can vary significantly, for example people frequently support regulation on banks and Wall Street firms, yet ardently oppose regulation on small businesses and so called “Mom and Pop” businesses.</p>
+<p>============================================================ <br> <br> <br></p>
 </div>
 <div id="results" class="section level3">
 <h3>Results</h3>
-<p>Here is how the distribution of regulatory views related to Party Indentification and 2016 Income:</p>
-<p>Party Identification and Views on Regulation</p>
+<p><br></p>
+<p>Party Identification and Views on Regulation <br> <br></p>
 <pre class="r"><code>counts &lt;- table(gss$lessreg, gss$partyid)
 barplot(counts, main=&quot;Distribution of Views on Regulation by Political Party&quot;, xlab=&quot;Party Identification - Liberal to Conservative&quot;, col=c(&quot;red&quot;, &quot;indianred1&quot;, &quot;seashell&quot;, &quot;skyblue1&quot;, &quot;blue4&quot;), legend = rownames(counts))</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>chisq.test(table(gss$partyid, gss$lessreg))</code></pre>
 <pre><code>## Warning in chisq.test(table(gss$partyid, gss$lessreg)): Chi-squared
 ## approximation may be incorrect</code></pre>
@@ -250,6 +257,7 @@ barplot(counts, main=&quot;Distribution of Views on Regulation by Political Part
 ## 
 ## data:  table(gss$partyid, gss$lessreg)
 ## X-squared = 208.69, df = 28, p-value &lt; 2.2e-16</code></pre>
+<p><br> <br></p>
 <pre class="r"><code>reg1 &lt;- lm(partyid ~ lessreg, data = gss)
 summary(reg1)</code></pre>
 <pre><code>## 
@@ -286,11 +294,13 @@ summary(reg1)</code></pre>
 ## Multiple R-squared:  0.09451,    Adjusted R-squared:  0.09384 
 ## F-statistic:   140 on 1 and 1341 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre class="r"><code>plot(partyid ~ lessreg, data = gss)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><br> <br> The Chi Square Test for Party Identification and Views on Regulation gave a p-value of less than 2.2e-16, which means when using the selected alpha of 0.1, we can say that this test demonstrates that there is a relationship between these two variables. This is to say that there is positive correlation; stronger conservatives exhibit stronger support for less regulation, and stronger democrats favour increased involvement from the government in the marketplace. Interestingly, the correlation is stronger with Republicans. <br> <br></p>
 <p>Income and Views on Regulation</p>
+<p><br></p>
 <pre class="r"><code>counts &lt;- table(gss$lessreg, gss$RINCOM16)
 barplot(counts, main=&quot;Distribution of Views on Regulation by Income&quot;, xlab=&quot;2016 Income - Low to High&quot;, col=c(&quot;red&quot;, &quot;indianred1&quot;, &quot;seashell&quot;, &quot;skyblue1&quot;, &quot;blue4&quot;), legend = rownames(counts))</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-8-1.png" width="672" /> <br> <br></p>
 <pre class="r"><code>chisq.test(table(gss$RINCOM16, gss$lessreg))</code></pre>
 <pre><code>## Warning in chisq.test(table(gss$RINCOM16, gss$lessreg)): Chi-squared
 ## approximation may be incorrect</code></pre>
@@ -355,12 +365,16 @@ summary(reg2)</code></pre>
 ## Multiple R-squared:  0.003649,   Adjusted R-squared:  0.00235 
 ## F-statistic: 2.809 on 1 and 767 DF,  p-value: 0.09414</code></pre>
 <pre class="r"><code>plot(RINCOM16 ~ lessreg, data = gss)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><br> <br> The Chi Square test resulted in a p-value that does not fit our alpha of 0.1, so in this case we fail to reject the null hypothesis, that there is no link between Income and Views on Regulation. It is important to note that regression is an imprecise tool to use as the variables are not interval-ratio. <br></p>
+<p>===========================================</p>
 </div>
 <div id="conclusions" class="section level3">
 <h3>Conclusions</h3>
-<p>There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. Consequently, we can demonstrate that there is a distincy relationship between Political Identification and Views on Regulation, but we cannot prove the hypotethesis that there is a link between Income and Views on Regulation using this data.</p>
-<p>Looking first at Political identifcation, the data fits the proposed hypothesis linking Democrats with more government oversight and consumer protection, and Republicans with support for a free market and limited government. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.</p>
+<p>There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. Consequently, we can demonstrate that there is a distinct relationship between Political Identification and Views on Regulation, but we cannot prove the hypothesis that there is a link between Income and Views on Regulation using this data.</p>
+<p>Income and Views on Regulation did not show signficant correlation, which makes sense when focusing on many Americans who have seen their real incomes fall over the recent years. Many blame the increased burden of the regulatory regime, commonly associated with the Democratic party, for the stunted growth of small business and the middle class in the United States. This dissaproval of some Democrat policy was notable in the election, where the “Rust Belt” came out strongly in support of the Republican candidate, flipping long-held blue states and repudiating 8 years of the Obama Administration.</p>
+<p>Looking next at Political identifcation, the data fits the proposed hypothesis linking Democrats with more government oversight and consumer protection, and Republicans with support for a free market and limited government. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.</p>
+<p>With a unique election that focused more heavily on immigration and the public’s perceptions of the personalities of the two candidates, it is noteworthy that this data does not show a signficant shift in the views of regulation of business in each party. Though it can be argued that the Democratic and Republican parties moved further apart on many social issues, there still remains significant common ground on the issue of the regulatory burden facing American businesses.</p>
 <p>1</p>
 </div>
 
