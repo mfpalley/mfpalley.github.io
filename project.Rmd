@@ -8,17 +8,20 @@ This project seeks to analyse the relationship between political beliefs and vie
 
 My hypothesis was that Liberals would favour more regulation while Conservatives would favour less. The hypothesis for the second independent variable, 2016 income, was that lower incomes would also favour more regulation on business. However, the correlation was expected to be less than that of political party and view on regulation.
 
+
+
+
+============================================================
+
+
+
 ###Data
 
-The first independent variable is Party ID. This is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative.
-    0 = Strong Democrat
-    1 = Not Very Strong Democrat
-    2 = Independent, Close to Democrat
-    3 = Independent, (Neither, No Response)
-    4 = Independent, Close to Republican
-    5 = Not Very Strong Republican
-    6 = Strong Republican
-    7 = Other Party, Refused to Say
+The first independent variable is Party ID. The distrubution of Liberals and Conservatives seems almost symmetrical, with slightly more Liberals. Interestingly, for both Liberals and Conservatives, the most popular option was to identify as a moderate within their respective party.
+
+This data is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative. 7 corresponds to Other Party, or Refused to Say.
+
+
 
 ```{r}
 counts <- table(gss$partyid)
@@ -27,6 +30,9 @@ barplot(counts, main="Distribution of Political Identification", xlab="Party Ide
 
 table(gss$partyid)
 ```
+
+
+
 
 There 
 
@@ -37,6 +43,9 @@ table(gss$RINCOM16)
 ```
 
 The distribtion of income was quite well spread out and varied, with the majority of respondents earning less than $50,000 in the last year. The data is not a true interval-ratio variable, and it is important to note that 51 people surveyed reported incomes of over $170,000, and the data does not specify how high their actual income turned out to be. Furthermore, 85 participants declined to provide their annual incomes, which makes this variable incomplete and less 
+
+
+
 
 The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against.
 
@@ -49,19 +58,19 @@ There were a total of 1444 respondents, and the larger proportion of people supp
 
 
 
+
+
 ###Results
 
 Here is how the distribution of regulatory views related to Party Indentification and 2016 Income:
 
 
+Party Identification and Views on Regulation
+
+
 ```{r}
 counts <- table(gss$lessreg, gss$partyid)
 barplot(counts, main="Distribution of Views on Regulation by Political Party", xlab="Party Identification - Liberal to Conservative", col=c("red", "indianred1", "seashell", "skyblue1", "blue4"), legend = rownames(counts))
-```
-
-```{r}
-counts <- table(gss$lessreg, gss$RINCOM16)
-barplot(counts, main="Distribution of Views on Regulation by Income", xlab="2016 Income - Low to High", col=c("red", "indianred1", "seashell", "skyblue1", "blue4"), legend = rownames(counts))
 ```
 
 
@@ -70,8 +79,18 @@ chisq.test(table(gss$partyid, gss$lessreg))
 reg1 <- lm(partyid ~ lessreg, data = gss)
 summary(reg1)
 plot(partyid ~ lessreg, data = gss)
-
 ```
+
+
+
+Income and Views on Regulation
+
+
+```{r}
+counts <- table(gss$lessreg, gss$RINCOM16)
+barplot(counts, main="Distribution of Views on Regulation by Income", xlab="2016 Income - Low to High", col=c("red", "indianred1", "seashell", "skyblue1", "blue4"), legend = rownames(counts))
+```
+
 
 ```{r}
 chisq.test(table(gss$RINCOM16, gss$lessreg))
