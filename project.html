@@ -233,10 +233,10 @@ $(document).ready(function () {
 <div id="results" class="section level3">
 <h3>Results</h3>
 <p>Here is how the distribution of regulatory views related to Party Indentification and 2016 Income:</p>
-<pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
+<pre class="r"><code>counts &lt;- table(gss$lessreg, gss$partyid)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre class="r"><code>counts &lt;- table(gss$RINCOM16, gss$lessreg)
+<pre class="r"><code>counts &lt;- table(gss$lessreg, gss$RINCOM16)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>chisq.test(table(gss$partyid, gss$lessreg))</code></pre>

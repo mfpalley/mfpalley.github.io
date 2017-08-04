@@ -51,12 +51,12 @@ Here is how the distribution of regulatory views related to Party Indentificatio
 
 
 ```{r}
-counts <- table(gss$partyid, gss$lessreg)
+counts <- table(gss$lessreg, gss$partyid)
 barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
 ```
 
 ```{r}
-counts <- table(gss$RINCOM16, gss$lessreg)
+counts <- table(gss$lessreg, gss$RINCOM16)
 barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
 ```
 
