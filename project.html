@@ -234,10 +234,10 @@ $(document).ready(function () {
 <h3>Results</h3>
 <p>Here is how the distribution of regulatory views related to Party Indentification and 2016 Income:</p>
 <pre class="r"><code>counts &lt;- table(gss$lessreg, gss$partyid)
-barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
+barplot(counts, main=&quot;Distribution of Views on Regulation by Political Party&quot;, xlab=&quot;Party Identification - Liberal to Conservative&quot;, col=c(&quot;red&quot;, &quot;indianred1&quot;, &quot;seashell&quot;, &quot;skyblue1&quot;, &quot;blue4&quot;), legend = rownames(counts))</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>counts &lt;- table(gss$lessreg, gss$RINCOM16)
-barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
+barplot(counts, main=&quot;Distribution of Views on Regulation by Income&quot;, xlab=&quot;2016 Income - Low to High&quot;, col=c(&quot;red&quot;, &quot;indianred1&quot;, &quot;seashell&quot;, &quot;skyblue1&quot;, &quot;blue4&quot;), legend = rownames(counts))</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>chisq.test(table(gss$partyid, gss$lessreg))</code></pre>
 <pre><code>## Warning in chisq.test(table(gss$partyid, gss$lessreg)): Chi-squared
@@ -352,7 +352,8 @@ summary(reg2)</code></pre>
 </div>
 <div id="conclusions" class="section level3">
 <h3>Conclusions</h3>
-<p>There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.</p>
+<p>There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. Consequently, we can demonstrate that there is a distincy relationship between Political Identification and Views on Regulation, but we cannot prove the hypotethesis that there is a link between Income and Views on Regulation using this data.</p>
+<p>Looking first at Political identifcation, the data fits the proposed hypothesis linking Democrats with more government oversight and consumer protection, and Republicans with support for a free market and limited government. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.</p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>

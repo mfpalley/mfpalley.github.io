@@ -52,12 +52,12 @@ Here is how the distribution of regulatory views related to Party Indentificatio
 
 ```{r}
 counts <- table(gss$lessreg, gss$partyid)
-barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
+barplot(counts, main="Distribution of Views on Regulation by Political Party", xlab="Party Identification - Liberal to Conservative", col=c("red", "indianred1", "seashell", "skyblue1", "blue4"), legend = rownames(counts))
 ```
 
 ```{r}
 counts <- table(gss$lessreg, gss$RINCOM16)
-barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
+barplot(counts, main="Distribution of Views on Regulation by Income", xlab="2016 Income - Low to High", col=c("red", "indianred1", "seashell", "skyblue1", "blue4"), legend = rownames(counts))
 ```
 
 
@@ -83,6 +83,8 @@ plot(RINCOM16 ~ lessreg, data = gss)
 
 ###Conclusions
 
-There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.
+There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. Consequently, we can demonstrate that there is a distincy relationship between Political Identification and Views on Regulation, but we cannot prove the hypotethesis that there is a link between Income and Views on Regulation using this data.
+
+Looking first at Political identifcation, the data fits the proposed hypothesis linking Democrats with more government oversight and consumer protection, and Republicans with support for a free market and limited government. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.
 
     
