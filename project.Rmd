@@ -30,6 +30,13 @@ The second independent variable is 2016 Income.
 table(gss$RINCOM16)
 ```
 
+The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against.
+
+```{r}
+table(gss$lessreg)
+```
+
+###Results
 
 Here is how the data turned out:
 
@@ -38,6 +45,12 @@ Here is how the data turned out:
 counts <- table(gss$partyid, gss$lessreg)
 barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
 ```
+
+```{r}
+counts <- table(gss$RINCOM16, gss$lessreg)
+barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
+```
+
 
 ```{r}
 chisq.test(table(gss$partyid, gss$lessreg))

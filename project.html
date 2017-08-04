@@ -221,10 +221,21 @@ $(document).ready(function () {
 ##  8 26 23 18 18 13 11 14 26 15 26 22 36 31 49 64 41 65 70 60 36 34 19 12  8 
 ## 26 
 ## 24</code></pre>
+<p>The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against.</p>
+<pre class="r"><code>table(gss$lessreg)</code></pre>
+<pre><code>## 
+##   1   2   3   4   5 
+## 236 470 399 191  60</code></pre>
+</div>
+<div id="results" class="section level3">
+<h3>Results</h3>
 <p>Here is how the data turned out:</p>
 <pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>counts &lt;- table(gss$RINCOM16, gss$lessreg)
+barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>chisq.test(table(gss$partyid, gss$lessreg))</code></pre>
 <pre><code>## Warning in chisq.test(table(gss$partyid, gss$lessreg)): Chi-squared
 ## approximation may be incorrect</code></pre>
@@ -269,7 +280,7 @@ summary(reg1)</code></pre>
 ## Multiple R-squared:  0.09451,    Adjusted R-squared:  0.09384 
 ## F-statistic:   140 on 1 and 1341 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre class="r"><code>plot(partyid ~ lessreg, data = gss)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>chisq.test(table(gss$RINCOM16, gss$lessreg))</code></pre>
 <pre><code>## Warning in chisq.test(table(gss$RINCOM16, gss$lessreg)): Chi-squared
 ## approximation may be incorrect</code></pre>
@@ -334,7 +345,7 @@ summary(reg2)</code></pre>
 ## Multiple R-squared:  0.003649,   Adjusted R-squared:  0.00235 
 ## F-statistic: 2.809 on 1 and 767 DF,  p-value: 0.09414</code></pre>
 <pre class="r"><code>plot(RINCOM16 ~ lessreg, data = gss)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>
