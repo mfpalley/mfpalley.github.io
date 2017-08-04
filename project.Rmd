@@ -24,11 +24,15 @@ The first independent variable is Party ID. This is measured on a scale of 0 to 
 table(gss$partyid)
 ```
 
+There 
+
 The second independent variable is 2016 Income. 
 
 ```{r}
 table(gss$RINCOM16)
 ```
+
+The distribtion of income was quite well spread out and varied, with the majority of respondents earning less than $50,000 in the last year. The data is not a true interval-ratio variable, and it is important to note that 51 people surveyed reported incomes of over $170,000, and the data does not specify how high their actual income turned out to be. Furthermore, 85 participants declined to provide their annual incomes, which makes this variable incomplete and less 
 
 The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against.
 
@@ -36,9 +40,11 @@ The dependent variable is Support for Less Government Regulation of Business. 1 
 table(gss$lessreg)
 ```
 
-###Results
+There were a total of 1444 respondents, and the larger proportion of people supported some reduction of government regulation. Almost 50% of people surveyed believed that the regulatory regime was too much of a burden for businesses. The single largest group was in favour of regulations, closely followed by the neutral group. Interestingly, the smallest group was that strongly against a reduction in regulation. This group was a third of the size of the next closest - the group moderately against a decrease in regulation. This means that just over 17% of those surveyed would like to see increased government regulation of business. This data appeared at first glance surprising, but it is important to note that views on regulation can vary significantly, for example people frequently support regulation on banks and Wall Street firms, yet ardently oppose regulation on small businesses and so called "Mom and Pop" businesses.
 
-Here is how the data turned out:
+###Results and Conclusions
+
+Here is how the distribution of regulatory views related to Party Indentification and 2016 Income:
 
 
 ```{r}
@@ -67,5 +73,6 @@ summary(reg2)
 plot(RINCOM16 ~ lessreg, data = gss)
 ```
 
+There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.
 
     

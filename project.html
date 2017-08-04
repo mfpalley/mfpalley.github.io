@@ -214,6 +214,7 @@ $(document).ready(function () {
 <pre><code>## 
 ##   0   1   2   3   4   5   6   7 
 ## 205 238 188 226 142 183 134  27</code></pre>
+<p>There</p>
 <p>The second independent variable is 2016 Income.</p>
 <pre class="r"><code>table(gss$RINCOM16)</code></pre>
 <pre><code>## 
@@ -221,15 +222,17 @@ $(document).ready(function () {
 ##  8 26 23 18 18 13 11 14 26 15 26 22 36 31 49 64 41 65 70 60 36 34 19 12  8 
 ## 26 
 ## 24</code></pre>
+<p>The distribtion of income was quite well spread out and varied, with the majority of respondents earning less than $50,000 in the last year. The data is not a true interval-ratio variable, and it is important to note that 51 people surveyed reported incomes of over $170,000, and the data does not specify how high their actual income turned out to be. Furthermore, 85 participants declined to provide their annual incomes, which makes this variable incomplete and less</p>
 <p>The dependent variable is Support for Less Government Regulation of Business. 1 is strong support for this and 5 is strongly against.</p>
 <pre class="r"><code>table(gss$lessreg)</code></pre>
 <pre><code>## 
 ##   1   2   3   4   5 
 ## 236 470 399 191  60</code></pre>
+<p>There were a total of 1444 respondents, and the larger proportion of people supported some reduction of government regulation. Almost 50% of people surveyed believed that the regulatory regime was too much of a burden for businesses. The single largest group was in favour of regulations, closely followed by the neutral group. Interestingly, the smallest group was that strongly against a reduction in regulation. This group was a third of the size of the next closest - the group moderately against a decrease in regulation. This means that just over 17% of those surveyed would like to see increased government regulation of business. This data appeared at first glance surprising, but it is important to note that views on regulation can vary significantly, for example people frequently support regulation on banks and Wall Street firms, yet ardently oppose regulation on small businesses and so called “Mom and Pop” businesses.</p>
 </div>
-<div id="results" class="section level3">
-<h3>Results</h3>
-<p>Here is how the data turned out:</p>
+<div id="results-and-conclusions" class="section level3">
+<h3>Results and Conclusions</h3>
+<p>Here is how the distribution of regulatory views related to Party Indentification and 2016 Income:</p>
 <pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
@@ -346,6 +349,7 @@ summary(reg2)</code></pre>
 ## F-statistic: 2.809 on 1 and 767 DF,  p-value: 0.09414</code></pre>
 <pre class="r"><code>plot(RINCOM16 ~ lessreg, data = gss)</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>There is a significant correlation between Party ID and Views on Regulation, however the relationship between 2016 Income and Views on Regulation is much weaker. From the Chi Square test, we can make the argument that there is a clear correlation showing that Liberals support more regulation and consumer protection, while Conservatives favour a less burdensome set of laws for businesses. This is in line with the conventional idealogies of each of the two parties in the United States, the Democrats and the Republicans.</p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>
