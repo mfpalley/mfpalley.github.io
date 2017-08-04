@@ -16,4 +16,13 @@ counts <- table(gss$partyid, gss$lessreg)
 barplot(counts, main="Distribution of Views on Regulation", xlab="Views on Regulation")
 ```
 
+```{r}
+chisq.test(table(gss$partyid, gss$lessreg))
+reg1 <- lm(partyid ~ lessreg, data = gss)
+summary(reg1)
+plot(partyid ~ lessreg, data = gss)
 
+```
+
+
+There was a clear correlation between

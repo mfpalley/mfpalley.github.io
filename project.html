@@ -205,7 +205,13 @@ $(document).ready(function () {
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <p>This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. My hypothesis was that Liberals would favour more regulation while Conservatives would favour less.</p>
-<p>1</p>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>Here is how the data turned out:</p>
+<pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
+barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>
