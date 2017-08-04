@@ -210,7 +210,7 @@ $(document).ready(function () {
 </div>
 <div id="data" class="section level3">
 <h3>Data</h3>
-<p>The first independent variable is Party ID.</p>
+<p>The first independent variable is Party ID. The distrubution of Liberals and Conservatives seems almost symmetrical, with slightly more Liberals. Interestingly, for both Liberals and Conservatives, the most popular option was to identify as a moderate within their respective party.</p>
 <p>This data is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative. 7 corresponds to Other Party, or Refused to Say.</p>
 <pre class="r"><code>counts &lt;- table(gss$partyid)
 barplot(counts, main=&quot;Distribution of Political Identification&quot;, xlab=&quot;Party Identification - Liberal to Conservative&quot;, col=c(&quot;blue4&quot;, &quot;royalblue1&quot;, &quot;skyblue1&quot;, &quot;seashell&quot;, &quot;indianred1&quot;, &quot;indianred3&quot;, &quot;red&quot;, &quot;slategray&quot;))</code></pre>
