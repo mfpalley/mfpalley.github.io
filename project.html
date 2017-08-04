@@ -204,14 +204,21 @@ $(document).ready(function () {
 
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
-<p>This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. My hypothesis was that Liberals would favour more regulation while Conservatives would favour less.</p>
+<p>This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. The 2016 data is espescially useful as it coincided with a Presidential election year. The focus of this election shifted from a focus on the economy to a larger emphasis on social issues, particularly immigration and foreign policy, so it is worthwhile to investigate this issue which received a smaller amount of attention.</p>
+<p>My hypothesis was that Liberals would favour more regulation while Conservatives would favour less. The hypothesis for the second independent variable, 2016 income, was that lower incomes would also favour more regulation on business. However, the correlation was expected to be less than that of political party and view on regulation.</p>
 </div>
 <div id="data" class="section level3">
 <h3>Data</h3>
+<p>The first independent variable is Party ID. This is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative. 0 = Strong Democrat 1 = Not Very Strong Democrat 2 = Independent, Close to Democrat 3 = Independent, (Neither, No Response) 4 = Independent, Close to Republican 5 = Not Very Strong Republican 6 = Strong Republican 7 = Other Party, Refused to Say</p>
+<pre class="r"><code>table(gss$partyid)</code></pre>
+<pre><code>## 
+##   0   1   2   3   4   5   6   7 
+## 205 238 188 226 142 183 134  27</code></pre>
+<p>The second independent variable is 2016 Income.</p>
 <p>Here is how the data turned out:</p>
 <pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="project_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>chisq.test(table(gss$partyid, gss$lessreg))</code></pre>
 <pre><code>## Warning in chisq.test(table(gss$partyid, gss$lessreg)): Chi-squared
 ## approximation may be incorrect</code></pre>
@@ -256,8 +263,7 @@ summary(reg1)</code></pre>
 ## Multiple R-squared:  0.09451,    Adjusted R-squared:  0.09384 
 ## F-statistic:   140 on 1 and 1341 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre class="r"><code>plot(partyid ~ lessreg, data = gss)</code></pre>
-<p><img src="project_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>There was a clear correlation between</p>
+<p><img src="project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>

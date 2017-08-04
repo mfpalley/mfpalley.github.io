@@ -27,7 +27,7 @@ table(gss$partyid)
 The second independent variable is 2016 Income. 
 
 ```{r}
-barplot()
+
 ```
 
 
