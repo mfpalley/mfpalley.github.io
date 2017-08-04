@@ -4,9 +4,32 @@ title: "Research Assignment"
 
 ###Introduction
 
-This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. My hypothesis was that Liberals would favour more regulation while Conservatives would favour less.
+This project seeks to analyse the relationship between political beliefs and views on regulation of business. The conventional association is that more Conservative people tend to be in favour limited government regulation in the free market economy, while Liberals believe in the role of the government in curbing excess and protecting consumers. To investigate this I looked at data from the 2016 General Social Survey, specifically the political identification of people and their views on whether there should be less regulation of business. The 2016 data is espescially useful as it coincided with a Presidential election year. The focus of this election shifted from a focus on the economy to a larger emphasis on social issues, particularly immigration and foreign policy, so it is worthwhile to investigate this issue which received a smaller amount of attention.
+
+My hypothesis was that Liberals would favour more regulation while Conservatives would favour less. The hypothesis for the second independent variable, 2016 income, was that lower incomes would also favour more regulation on business. However, the correlation was expected to be less than that of political party and view on regulation.
 
 ###Data
+
+The first independent variable is Party ID. This is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative.
+    0 = Strong Democrat
+    1 = Not Very Strong Democrat
+    2 = Independent, Close to Democrat
+    3 = Independent, (Neither, No Response)
+    4 = Independent, Close to Republican
+    5 = Not Very Strong Republican
+    6 = Strong Republican
+    7 = Other Party, Refused to Say
+
+```{r}
+table(gss$partyid)
+```
+
+The second independent variable is 2016 Income. 
+
+```{r}
+barplot()
+```
+
 
 Here is how the data turned out:
 
@@ -25,4 +48,5 @@ plot(partyid ~ lessreg, data = gss)
 ```
 
 
-There was a clear correlation between
+
+    

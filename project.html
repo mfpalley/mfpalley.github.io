@@ -212,6 +212,52 @@ $(document).ready(function () {
 <pre class="r"><code>counts &lt;- table(gss$partyid, gss$lessreg)
 barplot(counts, main=&quot;Distribution of Views on Regulation&quot;, xlab=&quot;Views on Regulation&quot;)</code></pre>
 <p><img src="project_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>chisq.test(table(gss$partyid, gss$lessreg))</code></pre>
+<pre><code>## Warning in chisq.test(table(gss$partyid, gss$lessreg)): Chi-squared
+## approximation may be incorrect</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  table(gss$partyid, gss$lessreg)
+## X-squared = 208.69, df = 28, p-value &lt; 2.2e-16</code></pre>
+<pre class="r"><code>reg1 &lt;- lm(partyid ~ lessreg, data = gss)
+summary(reg1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = partyid ~ lessreg, data = gss)
+## 
+## Residuals:
+## &lt;Labelled double&gt;
+##     Min      1Q  Median      3Q     Max 
+## -3.6920 -1.5380 -0.1150  1.4620  5.6161 
+## 
+## Labels:
+##  value              label
+##      0    STRONG DEMOCRAT
+##      1   NOT STR DEMOCRAT
+##      2       IND,NEAR DEM
+##      3        INDEPENDENT
+##      4       IND,NEAR REP
+##      5 NOT STR REPUBLICAN
+##      6  STRONG REPUBLICAN
+##      7        OTHER PARTY
+##      8                 DK
+##      9                 NA
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  4.26905    0.13431   31.79   &lt;2e-16 ***
+## lessreg     -0.57702    0.04877  -11.83   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.918 on 1341 degrees of freedom
+##   (1524 observations deleted due to missingness)
+## Multiple R-squared:  0.09451,    Adjusted R-squared:  0.09384 
+## F-statistic:   140 on 1 and 1341 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(partyid ~ lessreg, data = gss)</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>There was a clear correlation between</p>
 </div>
 
 <p>Copyright &copy; 2017 Malcolm Palley, Inc. All rights reserved.</p>
