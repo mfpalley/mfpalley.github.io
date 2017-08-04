@@ -21,6 +21,10 @@ The first independent variable is Party ID. This is measured on a scale of 0 to 
     7 = Other Party, Refused to Say
 
 ```{r}
+counts <- table(gss$partyid)
+barplot(counts, main="Distribution of Political Identification", xlab="Party Identification - Liberal to Conservative", col=c("blue4", "royalblue1", "skyblue1", "seashell", "indianred1", "indianred3", "red", "slategray"))
+
+
 table(gss$partyid)
 ```
 

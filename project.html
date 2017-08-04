@@ -210,6 +210,9 @@ $(document).ready(function () {
 <div id="data" class="section level3">
 <h3>Data</h3>
 <p>The first independent variable is Party ID. This is measured on a scale of 0 to 7 - with 0 the most Liberal and 6 the most Conservative. 0 = Strong Democrat 1 = Not Very Strong Democrat 2 = Independent, Close to Democrat 3 = Independent, (Neither, No Response) 4 = Independent, Close to Republican 5 = Not Very Strong Republican 6 = Strong Republican 7 = Other Party, Refused to Say</p>
+<pre class="r"><code>counts &lt;- table(gss$partyid)
+barplot(counts, main=&quot;Distribution of Political Identification&quot;, xlab=&quot;Party Identification - Liberal to Conservative&quot;, col=c(&quot;blue4&quot;, &quot;royalblue1&quot;, &quot;skyblue1&quot;, &quot;seashell&quot;, &quot;indianred1&quot;, &quot;indianred3&quot;, &quot;red&quot;, &quot;slategray&quot;))</code></pre>
+<p><img src="project_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code>table(gss$partyid)</code></pre>
 <pre><code>## 
 ##   0   1   2   3   4   5   6   7 
